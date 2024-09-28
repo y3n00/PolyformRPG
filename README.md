@@ -1,3 +1,5 @@
+**[THE PROJECT IS CURRENTLY FROZEN, AND IM NOT SURE IM GONNA REVIVE IT]**
+
 **PolyformRPG**
 ================
 
