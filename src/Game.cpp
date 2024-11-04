@@ -77,12 +77,15 @@ void Game::show_player_info() noexcept {
 
     const auto [player_x, player_y] = player.get_position();
     const auto speed = player.get_velocity().Length();
+    const auto rotation = player.get_rotation();
+
     Vector2 draw_pos(10, 10);
 
     auto&& player_info = {
         std::format("PLAYER_POS: [{:.2f}, {:.2f}]", player_x, player_y),
         std::format("PLAYER_SPEED: {:.2f}", speed),
         std::format("CAMERA_ZOOM: {:.2f}", camera.zoom),
+        std::format("ROTATION: {:.2f}", rotation),
         std::format("FPS: {}", GetFPS())};
 
     for (auto&& str : player_info) {

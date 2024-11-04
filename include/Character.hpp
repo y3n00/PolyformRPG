@@ -21,6 +21,8 @@ class Character : public UpgradableObject, public DynamicObject {
 
     [[nodiscard]] inline auto is_alive() const noexcept { return health.current > 0; }
     [[nodiscard]] inline auto get_view_radius() const noexcept { return in_world.view_radius; }
+    [[nodiscard]] inline auto get_rotation() const noexcept { return in_world.rotation; }
+
 
     inline void take_damage(int32_t damage) noexcept {
         constexpr static auto clamp = std::clamp<decltype(health.max)>;
@@ -42,10 +44,11 @@ class Character : public UpgradableObject, public DynamicObject {
         double prev_time = 0;
     } attack;
     struct H {
-        uint16_t max, current;
+        uint32_t max, current;
     } health;
     struct IW {
-        uint16_t view_radius = 50, rotation = 0;
+        uint32_t view_radius = 50;
+        float rotation = 0;
     } in_world;
     std::vector<Item> items;
 
